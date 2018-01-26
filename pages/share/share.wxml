@@ -1,0 +1,6 @@
+<!--pages/share/share.wxml-->
+
+<canvas id="myCanvas" canvas-id="myCanvas" />
+<button id="redo" bindtap="redo">重新填写</button>
+<button id="share" open-type="share">发送给朋友</button>
+<button id="save" bindtap="save">保存朋友圈海报</button>

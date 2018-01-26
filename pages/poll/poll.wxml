@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view>{{tip}}</view>
+  
+  <form bindsubmit="formBindsubmit">
+    <checkbox-group bindchange="checkChange" name="course" class="s" >
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{yDSA}}" bindchange="yDSAChange" disabled="{{cDSA}}">
+        <checkbox value='DSA' class='m'>数据结构与算法 {{yDSA}}</checkbox>
+      </picker>
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{yDM}}" bindchange="yDMChange" disabled="{{cDM}}">
+        <checkbox value="DM" class='m'>离散数学 {{yDM}}</checkbox>
+      </picker>
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{yEH}}" bindchange="yEHChange" disabled="{{cEH}}">
+        <checkbox value="EH" class='m'>地球与人类文明 {{yEH}}</checkbox>
+      </picker>
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{yVR}}" bindchange="yVRChange" disabled="{{cVR}}">
+        <checkbox value="VR" class='m'>虚拟仿真创新应用与实践 {{yVR}}</checkbox>
+      </picker>
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{ySD}}" bindchange="ySDChange" disabled="{{cSD}}">
+        <checkbox value="SD" class='m'>空间数据库 {{ySD}}</checkbox>
+      </picker>
+      <picker mode="date" fields="year" start="2004" end="2020" value="{{ySS}}" bindchange="ySSChange" disabled="{{cSS}}">
+        <checkbox value="SS" class='m'>开源空间信息软件 {{ySS}}</checkbox>
+      </picker>
+    </checkbox-group>
+    <button id="submit" form-type='submit'>我上过这些课</button>
+  </form>
+</view>
+<view id="tip">Tip: 点选后可改变年份</view>
+<view id="author">By: Jerry不认识Tom</view>

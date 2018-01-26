@@ -1,0 +1,23 @@
+/* pages/share/share.wxss */
+#myCanvas{
+  height:100vh;
+  width:100vw;
+}
+#redo{
+  position:absolute;
+  right:5vw;
+  bottom:1vh;
+  font-size: 70%;
+}
+#share{
+  position:absolute;
+  right:41vw;
+  bottom:13vh;
+  font-size:70%;
+}
+#save{
+  position:absolute;
+  right:5vw;
+  bottom:13vh;
+  font-size:70%;
+}

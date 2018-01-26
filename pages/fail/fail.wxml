@@ -1,0 +1,13 @@
+<!--pages/fail/fail.wxml-->
+<view class="container">
+<text>如果你很幸运地看到了这个页面\n</text>
+<text>那就说明发生错误了\n</text>
+<text>要是服务器崩了，我也没办法\n</text>
+<text>要是代码有错误，我也懒得改\n</text>
+<text>当然最有可能的是你的网络有问题\n</text>
+<text>或者你拒绝了它的权限请求</text>
+<text>这就需要你关掉小程序\n</text>
+<text>找个WIFI重新打开试试了\n</text>
+<text>记住要把后台杀掉\n</text>
+<text>祝你好运！</text>
+</view>
