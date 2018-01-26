@@ -10,3 +10,10 @@
 既然没人讲，我也不讲了
 
 *WechatApp目录下为后端代码
+
+# 生成的图片
+
+两年半已经过去了啊
+
+![share](https://raw.githubusercontent.com/troubadour-hell/wechat_course/master/image/share.png)
+
