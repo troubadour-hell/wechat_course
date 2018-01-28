@@ -45,22 +45,34 @@ App({
           data: { code: JSON.stringify(code)},
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
           success: res => {
+            var succeed = res.data.succeed;
+            if(!succeed){
+              wx.navigateTo({
+                "url": "../fail/fail"
+              })
+              return
+            }
             var isExist = res.data.exist;
             var message = res.data.message //返回openid\
             this.globalData.allInfo = message;
             this.globalData.userID = message["openid"]
             //console.log(this.globalData.userID )          
-            //console.log(this.globalData.allInfo);            
+            //console.log(this.globalData.allInfo);           
             if(isExist){
               wx.navigateTo({
                   "url":"../share/share"
-                })
+              })
             }
             else{
               wx.navigateTo({
                   "url": "../poll/poll"
-                })
+              })
             }
+          },
+          fail: res => {
+            wx.navigateTo({
+              "url": "../fail/fail"
+            })
           }
         })      
       },
@@ -75,6 +87,6 @@ App({
     userInfo: null,
     userID: null,
     allInfo: null,
-    server: "https://10.0.0.61/"
+    server: "https://127.0.0.1/"
   }
 })

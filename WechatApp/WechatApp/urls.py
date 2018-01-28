@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^index/', views.poll),
     url(r'^id/', views.id),
     url(r'^delete/', views.delete),
+    url(r'^rank/', views.rank),
     url(r'^', views.poll),
 ]

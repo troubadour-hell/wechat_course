@@ -44,52 +44,73 @@ Page({
     ctx.fillRect(0, 0, 1000, 1000)
     ctx.setFillStyle("#000000")
     ctx.setTextAlign("center")
-    ctx.setFontSize(13)
+    ctx.setFontSize(15)
     ctx.drawImage("../../image/code.jpg", width * 0.05, height * 1.37, 100, 100) 
     ctx.fillText("长按识别小程序，你选过陈斌老师哪些课？", width * 0.65, height * 1.47)
     ctx.drawImage("https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJrXLyZGmib8HWuicB62WKUoicHYxDII5QTomAyDkDuInuPWwJUKQP7rRGcia6eibibQMw9QAqZ9bwoIfHQ/0",width*0.4,height*0.16,width*0.2,width*0.2)
-    ctx.setFontSize(15)
-    ctx.fillText(app.globalData.allInfo.nickname+"的选课记录", width * 0.5, height*0.4)
+    ctx.setFontSize(17)
+    ctx.fillText(app.globalData.allInfo.nickname+"的选课记录", width * 0.5, height*0.43)
     ctx.setFontSize(20)
     ctx.fillText("陈斌老师的课程", width * 0.5, 30)
-    ctx.setFontSize(10)
+    ctx.setShadow(0, 10, 30, 'black')
+    ctx.setFontSize(15)
+    var dis = 0.8 / 3
+    var half = dis / 2
     var num = 0
-    var add = "未点亮"
+    var year = ""
     var pic = "g"
     var row_1 = ["DSA", "DM", "EH"]
     var dic_1 = {
-      "DSA":"数据结构与算法-",
-      "DM":"离散数学-",
-      "EH":"地球与人类文明-"
+      "DSA":"数据结构与算法",
+      "DM":"离散数学",
+      "EH":"地球与人类文明"
     }
     for(var x in row_1)
     {
       if (app.globalData.allInfo[row_1[x]]) {
-        add = app.globalData.allInfo["y"+row_1[x]]
+        year = app.globalData.allInfo["y"+row_1[x]]
         pic = ""
+        ctx.setShadow(0, 10, 30, 'black')
       }
-      ctx.drawImage("../../image/"+row_1[x]+pic+".png", width * 0.05 + num * width * 0.31, height * 0.5, width * 0.27, width * 0.27)
-      ctx.fillText(dic_1[row_1[x]] + add, width * 0.18+width*0.32*num, height * 0.5 + width * 0.32)
+      ctx.drawImage("../../image/"+row_1[x]+pic+".png", width * 0.05 + num * width * (dis+0.05), height * 0.5, width * dis, width * dis)
+      ctx.fillText(dic_1[row_1[x]], width * (half+0.05)+width*(dis+0.05)*num, height * 0.5 + width * (dis+0.07))
+      if(year!=""){
+        ctx.setFillStyle('white')
+        ctx.setFontSize(30)
+        ctx.fillText(year, width * (half+0.05) + width * (dis+0.05) * num, height * 0.5 + width * (half+0.03))
+        ctx.setFillStyle('black')
+        year = ""
+        ctx.setFontSize(15)  
+        ctx.setShadow(0, 0, 0, 'white')  
+      }
       num+=1
-      add = "未点亮"
       pic = "g"
     }
     num = 0
     var row_2= ["VR", "SD", "SS"]
     var dic_2={
-      "VR":"虚拟仿真创新应用与实践-",
-      "SD":"空间数据库-",
-      "SS":"开源空间信息软件-",
+      "VR":"虚拟仿真创新应用",
+      "SD":"空间数据库",
+      "SS":"开源空间信息软件",
     }
     for (var x in row_2) {
       if (app.globalData.allInfo[row_2[x]]) {
-        add = app.globalData.allInfo["y" + row_2[x]]
+        year = app.globalData.allInfo["y" + row_2[x]]
         pic = ""
+        ctx.setShadow(0, 10, 30, 'black')
       }
-      ctx.drawImage("../../image/" + row_2[x]+pic+ ".png", width * 0.05 + num * width * 0.31, height * 0.5 + width * 0.4, width * 0.27, width * 0.27)
-      ctx.fillText(dic_2[row_2[x]] + add, width * 0.18 + width * 0.32 * num, height * 0.5 + width * 0.72)
+      ctx.drawImage("../../image/" + row_2[x]+pic+ ".png", width * 0.05 + num * width * (dis+0.05), height * 0.5 + width * 0.4, width * dis, width * dis)
+      ctx.fillText(dic_2[row_2[x]], width * (half+0.05) + width * (dis+0.05) * num, height * 0.5 + width * (0.4+dis+0.07))
+      if (year != "") {
+        ctx.setFillStyle('white')
+        ctx.setFontSize(30)
+        ctx.fillText(year, width * (half+0.05) + width * (dis+0.05) * num, height * 0.5 + width * (0.4+half+0.03))
+        ctx.setFillStyle('black')
+        year = ""
+        ctx.setFontSize(15)
+        ctx.setShadow(0, 10, 30, 'white')
+      }
       num += 1
-      add = "未点亮"
       pic = "g"
     }
     ctx.draw()
@@ -149,11 +170,6 @@ Page({
           mask: true
         })
       },
-      fail: res => {
-        wx.navigateTo({
-          "url": "../fail/fail"
-        })
-      }
     }
   },
   save : function () {
@@ -206,6 +222,11 @@ Page({
           "url": "../fail/fail"
         })
       }
+    })
+  },
+  rank: function(){
+    wx.navigateTo({
+      "url": "../rank/rank"
     })
   }
 })

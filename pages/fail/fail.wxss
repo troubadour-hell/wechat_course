@@ -1,1 +1,14 @@
 /* pages/fail/fail.wxss */
+#404{
+  height: 10vh;
+  width: 10vh;
+}
+.NotFound{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5vh 0;
+  box-sizing: border-box;
+}

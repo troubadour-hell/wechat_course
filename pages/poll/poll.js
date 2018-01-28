@@ -87,7 +87,7 @@ Page({
         success: res => { 
           //console.log('已经提交数据到数据库') 
           app.globalData.allInfo = res.data.message
-          console.log(app.globalData.allInfo)
+          //console.log(app.globalData.allInfo)
           wx.navigateTo(
             {
               "url": "../share/share"

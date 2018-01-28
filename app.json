@@ -3,8 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/fail/fail",
-    "pages/share/share", 
-    "pages/poll/poll"
+    "pages/share/share",
+    "pages/poll/poll",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",

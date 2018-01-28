@@ -18,3 +18,4 @@ class Student(models.Model):
     yVR = models.CharField(max_length=8, null=False, default="0")
     ySD = models.CharField(max_length=8, null=False, default="0")
     ySS = models.CharField(max_length=8, null=False, default="0")
+    num = models.IntegerField(null=False, default=0)

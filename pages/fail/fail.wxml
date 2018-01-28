@@ -1,5 +1,6 @@
 <!--pages/fail/fail.wxml-->
-<view class="container">
+<view class="NotFound">
+<image id="404" src='../../image/404.jpg'></image>
 <text>如果你很幸运地看到了这个页面\n</text>
 <text>那就说明发生错误了\n</text>
 <text>要是服务器崩了，我也没办法\n</text>
@@ -8,6 +9,9 @@
 <text>或者你拒绝了它的权限请求</text>
 <text>这就需要你关掉小程序\n</text>
 <text>找个WIFI重新打开试试了\n</text>
+<text>如果是后者/n</text>
 <text>记住要把后台杀掉\n</text>
+<text>还不行等段时间它清掉缓存就好\n</text>
+<text>具体的时长可就比较玄学了\n</text>
 <text>祝你好运！</text>
 </view>

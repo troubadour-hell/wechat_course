@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.core import serializers
+from django.forms.models import  model_to_dict
 from . import models
 import urllib.request
 import json
@@ -25,6 +27,7 @@ def poll(request):
             new_poll.VR = "VR" in course
             new_poll.SD = "SD" in course
             new_poll.SS = "SS" in course
+            new_poll.num = new_poll.DSA+ new_poll.DM+new_poll.EH+new_poll.VR+new_poll.SD+new_poll.SS
             if "DSA" in course:
                 new_poll.yDSA = years["DSA"]
             if "DM" in course:
@@ -48,19 +51,27 @@ def poll(request):
 
 def id(request):
     code = json.loads(request.POST.get("code"))
-    id = urllib.request.urlopen('https://api.weixin.qq.com/sns/jscode2session?appid=wxdb6a722ec6f7651a&'+\
+    message = {}
+    request = urllib.request.Request('https://api.weixin.qq.com/sns/jscode2session?appid=wxdb6a722ec6f7651a&'+\
     'secret=3b25983534b2530f4f6a3a760f61c27b&js_code=%s&grant_type=authorization_code' % code)
-    data = json.loads(bytes.decode(id.read()))
-    userID = data["openid"]
-    exist = models.Student.objects.filter(openid=userID)
-    if exist:
-        exist = exist.values()[0]
-        message = {"message":exist, "exist":True}
-    else:
-        exist = {
-            "openid": data["openid"]
-        }
-        message = {"message":exist, "exist":False}
+    try:
+        id = urllib.request.urlopen(request)
+        message["succeed"] = True
+        data = json.loads(bytes.decode(id.read()))
+        userID = data["openid"]
+        exist = models.Student.objects.filter(openid=userID)
+        if exist:
+            exist = exist.values()[0]
+            message["message"] = exist
+            message["exist"] = True
+        else:
+            exist = {
+                "openid": data["openid"]
+            }
+            message["message"] = exist
+            message["exist"] = False
+    except:
+        message["succeed"]= False
     return HttpResponse(json.dumps(message))
 
 def delete(request):
@@ -72,3 +83,12 @@ def delete(request):
     else:
         message = {"message": "Wrong"}
     return HttpResponse(json.dumps(message))
+
+def rank(request):
+    rank = models.Student.objects.all().order_by("num")[:100].values("nickname", "num", "avatarUrl")
+    users = []
+    for x in rank:
+        users.append(x)
+    message = {"message": users}
+    return HttpResponse(json.dumps(message))
+

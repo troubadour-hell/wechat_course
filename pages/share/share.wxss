@@ -9,6 +9,12 @@
   bottom:1vh;
   font-size: 70%;
 }
+#rank{
+  position:absolute;
+  right:41vw;
+  bottom:1vh;
+  font-size: 70%;
+}
 #share{
   position:absolute;
   right:41vw;

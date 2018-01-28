@@ -1,0 +1,44 @@
+/* pages/rank/rank.wxss */
+.rank{
+  align-items: center;
+  padding: 20rpx 0;
+}
+.user{
+  height: 10vh;
+  margin : 10px 0px 10px 0px;
+  float: left;
+}
+.title{
+  font-size: 150%;
+  font-weight: bold;
+  text-align:center;
+}
+.photo{
+  width: 10vh;
+  height: 10vh;
+  float: left;
+}
+.index{
+  float: left;
+  width:8vh;
+  height: 10vh;
+  text-align:center;
+  padding : 2.5vh 0vh 0vh 0vh;
+}
+.name{
+  width: 51%;
+  font-size: 100%;
+  float: left;
+  padding : 0.5vh 0vh 0vh 2.5vh;
+}
+.starbox{
+  height:7vw;
+  width: 51%;
+  float: left;
+  padding : 1vh 0vh 0vh 2vh;
+}
+.star{
+  width: 7vw;
+  height: 7vw;
+  float: left;
+}

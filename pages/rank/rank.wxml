@@ -1,0 +1,20 @@
+<!--pages/rank/rank.wxml-->
+<scroll-view scroll-y="true" class="rank">
+<view class="title">
+<text>排行</text>
+</view>
+<view wx:for="{{rank}}" wx:key="*this" class="user"> 
+  <view class="index">
+    <text>{{index+1}}</text>
+  </view>
+  <view class="photo">
+    <image src="{{item.avatarUrl}}" class="photo"></image>
+  </view>
+  <view class="name">
+    <text>{{item.nickname}}</text>
+  </view>
+  <view class="starbox">
+    <image src='../../image/star.ico' wx:for="{{star[item.num]}}" wx:key="*this" class="star"></image>
+  </view>
+</view>
+</scroll-view>
