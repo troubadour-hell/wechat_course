@@ -13,7 +13,5 @@
 
 # 生成的图片
 
-两年半已经过去了啊
-
-![share](https://raw.githubusercontent.com/troubadour-hell/wechat_course/master/image/share.png)
+![share](https://github.com/troubadour-hell/wechat_course/blob/master/src/image/share.png?raw=true)
 
